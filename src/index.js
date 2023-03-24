@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import routes from './routes/index.js';
 
 import { engine } from 'express-handlebars';
 import { fileURLToPath } from 'url';
@@ -11,23 +12,24 @@ const __dirname = dirname(__filename);
 const app = express();
 app.use(express.static(__dirname+'/public'));
 
+//convert post's param to req.body 
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
+
+
 //Morgan log
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 
 //Handlebars
 app.engine('hbs', engine({
   extname: '.hbs'
 }));
-
 app.set('view engine', 'hbs');
 app.set('views', __dirname+'/resources/views');
 
 //Render
-app.get('/', (req, res) => {
-  res.render('home')
-});
-app.get('/news', (req, res) => {
-  res.render('news')
-});
+routes(app);
 
 app.listen(3000, () => console.log(3000));
