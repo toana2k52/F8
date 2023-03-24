@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toana2k52/F8_nodejs_blog.git"
+    "url": "git+https://github.com/toana2k52/F8.git"
   },
   "author": "toandh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/toana2k52/F8_nodejs_blog/issues"
+    "url": "https://github.com/toana2k52/F8/issues"
   },
-  "homepage": "https://github.com/toana2k52/F8_nodejs_blog#readme",
+  "homepage": "https://github.com/toana2k52/F8#readme",
   "dependencies": {
     "express": "^4.18.2"
   },
