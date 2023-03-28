@@ -1,19 +1,11 @@
-import newsRouter from './news';
-// const newsRouter = require('./news');
+const siteRoute = require('./site');
+const newsRouter = require('./news');
+const searchRouter = require('./search');
 
-function route(app)
-{
-    app.get('/', (req, res) => {
-        res.render('home')
-    });
-    
-    app.get('/news', (req, res) => {
-        res.render('news')
-    });
-    
-    app.get('/search', (req, res) => {
-        res.render('search')
-    });
+function routes(app) {
+    app.use('/', siteRoute);
+    app.use('/news', newsRouter);
+    app.use('/search', searchRouter);
 }
 
-export default new route;
+module.exports = routes;
